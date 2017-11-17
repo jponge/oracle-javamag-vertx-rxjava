@@ -20,6 +20,6 @@ public class MainVerticle extends AbstractVerticle {
       .setConfig(new JsonObject().put("port", 3002)));
 
     vertx.deployVerticle("samples.BestOfferServiceVerticle", new DeploymentOptions()
-      .setInstances(1));
+      .setInstances(2));
   }
 }
