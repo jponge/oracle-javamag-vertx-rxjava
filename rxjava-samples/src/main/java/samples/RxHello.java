@@ -18,22 +18,22 @@ public class RxHello {
   public static void main(String[] args) {
 
     Single.just(1)
-        .map(i -> i * 10)
-        .map(Object::toString)
-        .subscribe((Consumer<String>) logger::info);
+      .map(i -> i * 10)
+      .map(Object::toString)
+      .subscribe((Consumer<String>) logger::info);
 
     Maybe.just("Something")
-        .subscribe(logger::info);
+      .subscribe(logger::info);
 
     Maybe.never()
-        .subscribe(o -> logger.info("Something is here..."));
+      .subscribe(o -> logger.info("Something is here..."));
 
     Completable.complete()
-        .subscribe(() -> logger.info("Completed"));
+      .subscribe(() -> logger.info("Completed"));
 
     Flowable.just("foo", "bar", "baz")
-        .filter(s -> s.startsWith("b"))
-        .map(String::toUpperCase)
-        .subscribe(logger::info);
+      .filter(s -> s.startsWith("b"))
+      .map(String::toUpperCase)
+      .subscribe(logger::info);
   }
 }

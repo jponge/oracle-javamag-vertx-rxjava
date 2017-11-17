@@ -32,15 +32,15 @@ public class RxCreateObservable {
     for (int i = 0; i < 10; i++) {
       logger.info("=======================================");
       source.subscribe(next -> logger.info("Next: {}", next),
-          error -> logger.error("Woops"),
-          () -> logger.info("Done"));
+        error -> logger.error("Woops"),
+        () -> logger.info("Done"));
     }
 
     logger.info("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     source
-        .retry(5)
-        .subscribe(next -> logger.info("Next: {}", next),
-            error -> logger.error("Woops"),
-            () -> logger.info("Done"));
+      .retry(5)
+      .subscribe(next -> logger.info("Next: {}", next),
+        error -> logger.error("Woops"),
+        () -> logger.info("Done"));
   }
 }
