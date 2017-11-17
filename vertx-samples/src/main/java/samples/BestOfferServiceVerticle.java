@@ -39,7 +39,6 @@ public class BestOfferServiceVerticle extends AbstractVerticle {
 
   private final Logger logger = LoggerFactory.getLogger(BestOfferServiceVerticle.class);
 
-  private final AtomicLong requestIds = new AtomicLong();
   private List<JsonObject> targets;
   private WebClient webClient;
 
@@ -65,6 +64,8 @@ public class BestOfferServiceVerticle extends AbstractVerticle {
         }
       });
   }
+
+  private final AtomicLong requestIds = new AtomicLong();
 
   private static final JsonObject EMPTY_RESPONSE = new JsonObject()
     .put("empty", true)
