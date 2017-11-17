@@ -37,10 +37,6 @@ public class BestOfferServiceVerticle extends AbstractVerticle {
       .put("port", 3002)
       .put("path", "/offer"));
 
-  private static final JsonObject EMPTY_RESPONSE = new JsonObject()
-    .put("empty", true)
-    .put("bid", Integer.MAX_VALUE);
-
   private final Logger logger = LoggerFactory.getLogger(BestOfferServiceVerticle.class);
 
   private final AtomicLong requestIds = new AtomicLong();
@@ -69,6 +65,10 @@ public class BestOfferServiceVerticle extends AbstractVerticle {
         }
       });
   }
+
+  private static final JsonObject EMPTY_RESPONSE = new JsonObject()
+    .put("empty", true)
+    .put("bid", Integer.MAX_VALUE);
 
   private void findBestOffer(HttpServerRequest request) {
     String requestId = String.valueOf(requestIds.getAndIncrement());
